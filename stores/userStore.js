@@ -14,6 +14,22 @@ export const useUserStore = defineStore('user', () => {
         bio: '',
         website: ''
     })
+    const EducationInfo = ref({
+        university: '',
+        department: '',
+        degree: '',
+        graduationYear: ''
+    })
+    const ExperienceInfo = ref({
+        company: '',
+        position: '',
+        duration: {
+            from: '',
+            to: ''
+        }
+    })
+    const skills = ref([])
+    const currentPage = ref('PersonalInfo')
 
-    return { PersonalInfo }
+    return { PersonalInfo, EducationInfo, skills, ExperienceInfo, currentPage, }
 })

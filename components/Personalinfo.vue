@@ -44,7 +44,17 @@ const onSubmit = handleSubmit(() => {
             userStore.PersonalInfo.bio = bio.value
             userStore.PersonalInfo.jobTitle = jobTitle.value
             userStore.PersonalInfo.website = website.value
-            alert("data submitted successfully!")
+            userStore.currentPage = "EducationInfo"
+            fullName.value = ''
+            birth.value = ''
+            email.value = ''
+            city.value = ''
+            country.value = ''
+            phone.value = ''
+            bio.value = ''
+            jobTitle.value = ''
+            website.value = ''
+
         } else {
             console.log('Validation failed:', errors.value)
         }
@@ -56,12 +66,14 @@ const onSubmit = handleSubmit(() => {
 <template>
     <div class="container min-h-screen">
         <a-card title="Personal Info" class="mt-12 border-2">
+            <Breadcrumbs/>
             <VForm @submit.prevent="onSubmit" class="flex flex-col">
                 <div class="w-full flex flex-row sm:flex-col">
                     <a-card-grid style="width: 33%;" class="grid gap-4 sm:!w-full" :hoverable="false">
                         <div>
                             <label for="fullName">Name:</label>
-                            <a-input id="fullName" v-model:value="fullName" class="bg-gray-200 pl-2 w-full h-8 rounded" />
+                            <a-input id="fullName" v-model:value="fullName"
+                                class="bg-gray-200 pl-2 w-full h-8 rounded" />
                         </div>
                         <span v-if="fullNameError" class="text-red-500">{{ fullNameError }}</span>
                     </a-card-grid>
@@ -121,7 +133,8 @@ const onSubmit = handleSubmit(() => {
                     <a-card-grid style="width: 33%;" class="grid gap-4 sm:!w-full" :hoverable="false">
                         <div>
                             <label for="jobTitle">Job Title: </label>
-                            <a-input id="jobTitle" v-model:value="jobTitle" class="bg-gray-200 pl-2 w-full h-8 rounded" />
+                            <a-input id="jobTitle" v-model:value="jobTitle"
+                                class="bg-gray-200 pl-2 w-full h-8 rounded" />
                         </div>
                         <span v-if="jobTitleError" class="text-red-500">{{ jobTitleError }}</span>
                     </a-card-grid>
@@ -135,7 +148,7 @@ const onSubmit = handleSubmit(() => {
                 </div>
                 <div class="flex items-center mt-12 justify-center">
                     <a-button @click="onSubmit()">
-                        Submit
+                        Next
                     </a-button>
                 </div>
             </VForm>
