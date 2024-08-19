@@ -25,7 +25,7 @@ const addSkill = async () => {
 
         if (isValid && tempskill.value && tempskill.value.trim() !== '') {
             skills.value.push(tempskill.value.trim())
-            setTempSkillValue('') 
+            setTempSkillValue('')
         }
     } catch (error) {
         console.error('Error adding skill:', error)
@@ -39,7 +39,7 @@ const deleteSkill = (index) => {
 const onSubmit = handleSubmit(() => {
     if (skills.value.length > 0) {
         userStore.skills = skills.value
-        userStore.currentPage = 'ExperianceInfo'
+        userStore.currentPage = 'ExperienceInfo'
     } else {
         console.log('No skills added.')
     }
@@ -50,7 +50,7 @@ const NextPage = () => {
         userStore.currentPage = 'ExperienceInfo'
     }
     else {
-        error.value = 'No skills added, please add skills to continue'
+        error.value = 'No skills added, please add skills and continue'
     }
 }
 </script>
@@ -90,7 +90,7 @@ const NextPage = () => {
                     <a-button @click="userStore.currentPage = 'EducationInfo'">
                         Back
                     </a-button>
-                    <a-button @click="NextPage">
+                    <a-button @click="NextPage" type="submit">
                         Next
                     </a-button>
                 </div>

@@ -7,6 +7,6 @@ const userStore = useUserStore()
         <Personalinfo v-if="userStore.currentPage === 'PersonalInfo'" />
         <Educationinfo v-if="userStore.currentPage === 'EducationInfo'" />
         <Skills v-if="userStore.currentPage === 'Skills'" />
-        <Experienceinfo v-if="userStore.currentPage === 'ExperienceInfo'" />
+        <Experienceinfo v-if="userStore.currentPage == 'ExperienceInfo'" />
     </main>
 </template>
